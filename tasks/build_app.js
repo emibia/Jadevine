@@ -13,10 +13,22 @@ var projectDir = jetpack;
 var srcDir = jetpack.cwd('./src');
 var destDir = jetpack.cwd('./app');
 
+var ts = require("gulp-typescript");
+var tsProject = ts.createProject("tsconfig.json");
+
+gulp.task('ts', function(){
+    tsProject.src()
+        .pipe(tsProject())
+        .js.pipe(gulp.dest(srcDir.path()));
+})
+
 gulp.task('bundle', function () {
+    gulp.start('ts',beepOnError(done));
+
     return Promise.all([
         bundle(srcDir.path('background.js'), destDir.path('background.js')),
         bundle(srcDir.path('app.js'), destDir.path('app.js')),
+        bundle(srcDir.path('main.js'), destDir.path('main.js'))
     ]);
 });
 
@@ -41,6 +53,10 @@ gulp.task('watch', function () {
             done(err);
         };
     };
+
+    watch('tssrc/*.ts', batch(function (events, done) {
+        gulp.start('ts', beepOnError(done));
+    }));
 
     watch('src/**/*.js', batch(function (events, done) {
         gulp.start('bundle', beepOnError(done));

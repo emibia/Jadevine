@@ -1,11 +1,11 @@
 {
-  "name": "electron-boilerplate",
-  "productName": "Electron Boilerplate",
-  "description": "Starter for your Electron application",
+  "name": "jadevine",
+  "productName": "Jade Vine",
+  "description": "Personal assistant sostware",
   "version": "0.0.0",
-  "author": "Mr. Gumby <mr.gumby@example.com>",
-  "copyright": "© 2016, Gumby inc.",
-  "homepage": "http://example.com",
+  "author": "Emidio Bianco <emidiobia@gmail.com.com>",
+  "copyright": "© 2016, Emidio Bianco",
+  "homepage": "",
   "license": "MIT",
   "main": "background.js",
   "dependencies": {
