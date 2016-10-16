@@ -1,10 +1,12 @@
 {
     "files": [
-        "tssrc/main.ts",
-        "tssrc/user.ts"
+        "src/tssrc/main.ts",
+        "src/tssrc/user.ts",
+        "src/tssrc/task.ts" 
     ],
     "compilerOptions": {
         "noImplicitAny": true,
+        "module":"commonjs",
         "target": "es5"
     }
 }
