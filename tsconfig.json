@@ -1,12 +1,19 @@
 {
-    "files": [
-        "src/tssrc/main.ts",
-        "src/tssrc/user.ts",
-        "src/tssrc/task.ts" 
+    // "files": [
+    //     "src/tssrc/main.ts",
+    //     "src/tssrc/user.ts",
+    //     "src/tssrc/task.ts",
+    //     "src/tssrc/state.ts"
+    // ],
+     "include": [
+        "src/tssrc/*"
     ],
     "compilerOptions": {
         "noImplicitAny": true,
         "module":"commonjs",
-        "target": "es5"
+        "target": "es6"
+        //"outFile": "main.js"
+        //"sourceMap": true
     }
+   
 }
