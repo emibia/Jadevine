@@ -12,10 +12,4 @@ taskList.push(t2);
 taskList.push(t3);
 console.log(taskList);
 document.addEventListener('WebComponentsReady', function () {
-    var input = document.querySelector('paper-input');
-    var button = document.querySelector('paper-button');
-    var greeting = document.getElementById("greeting");
-    button.addEventListener('click', function () {
-        greeting.textContent = 'Hello, ' + input.value;
-    });
 });

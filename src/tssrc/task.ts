@@ -1,9 +1,9 @@
 
-export enum State {	NotStarted=0,Running,Suspended,Deleted,Completed,}
+enum State {	NotStarted=0,Running,Suspended,Deleted,Completed}
 
-export enum Priority{Low = 0,Medium,High,veryHigh,EndOfTheWorld}
+enum Priority{Low = 0,Medium,High,veryHigh,EndOfTheWorld}
 
-export class User  {
+class User  {
 	
 private _firstName: string;
 private _lastName: 	string;

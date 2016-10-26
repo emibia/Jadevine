@@ -1,0 +1,86 @@
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+
+
+<script type="text/javascript" src="../task.js"></script>
+<dom-module id="x-task">
+
+  <template>
+
+    <style>
+      /* local DOM styles go here */
+      :host {
+        display: inline-block;
+        width: 100%;
+        position: relative;
+      }
+      .actions{
+      	position: absolute;
+      	margin: 8px;
+      	left: 0px;
+      }
+
+    </style>
+    <paper-card heading="Task Title" image="" elevation="1" animated-shadow="false">
+      <div class="card-content">
+      	
+      	<div class="actions">
+	    	<iron-icon icon="icons:delete"></iron-icon>
+	    	<iron-icon icon="icons:done"></iron-icon>
+	    </div>
+	    <div style="display: inline-block; height: 64px; width: 64px; border-radius: 50%; background: #ddd; line-height: 64px; font-size: 30px; color: #555; text-align: center;">F</div>
+	    <div class="task-description"> <p style="font-size: 16px;">No nam ipsum lorem aliquip, accumsan quaerendum ei usu.</p>
+	    </div>
+      </div>
+      <!-- <div class="card-actions">
+        
+      </div> -->
+    </paper-card>
+    
+    
+  </template>
+
+  <script>
+
+  class XTask {
+  	   // Define behaviors with a getter.
+    get behaviors() {
+      return [];
+    }
+
+    // Element setup goes in beforeRegister instead of createdCallback.
+    beforeRegister() {
+      this.is = 'x-task';
+
+      // Define the properties object in beforeRegister.
+      this.properties = {
+        symbols: {
+          type: Array,
+          value: function() { return []; },
+          observer: '_updateQuotes'
+        }
+      };
+    }
+
+    // Define other lifecycle methods as you need.
+    ready() { }
+    
+    attached() { }
+    
+    detached() { }
+
+    attributeChanged() {  }
+
+    _updateQuotes() {
+      // Same as the vanilla component.
+    }
+  }
+
+  Polymer(XTask);
+  </script>
+
+</dom-module>
+
