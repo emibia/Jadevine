@@ -3,6 +3,7 @@
 var path = require('path');
 var jetpack = require('fs-jetpack');
 var rollup = require('rollup').rollup;
+var utils = require('./utils');
 
 var nodeBuiltInModules = ['assert', 'buffer', 'child_process', 'cluster',
     'console', 'constants', 'crypto', 'dgram', 'dns', 'domain', 'events',
@@ -43,7 +44,7 @@ module.exports = function (src, dest, opts) {
         });
         // Wrap code in self invoking function so the variables don't
         // pollute the global namespace.
-        var isolatedCode = '(function () {' + result.code + '\n}());';
+        var isolatedCode = utils.getEnvName() !='development'?'(function () {' + result.code + '\n}());':result.code;
         return Promise.all([
             jetpack.writeAsync(dest, isolatedCode + '\n//# sourceMappingURL=' + jsFile + '.map'),
             jetpack.writeAsync(dest + '.map', result.map.toString()),

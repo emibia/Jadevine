@@ -1,5 +1,4 @@
-"use strict";
-class User {
+export class User {
     constructor(firstName, lastName) {
         this._firstName = firstName;
         this._lastName = lastName;
@@ -20,4 +19,3 @@ class User {
         this._lastName = newName;
     }
 }
-exports.User = User;

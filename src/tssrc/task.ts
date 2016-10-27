@@ -36,17 +36,21 @@ private _lastName: 	string;
 
 export class Task {
 	
-	assignee: User;
-	priority: Priority;
-	status: State;
-	title: string;
-	description: string;
-	owner: User;
-	assignees: Array<User>;
-	startDate: Date;
-	endDate: Date;
+	constructor(propsObj?:Object) {
+		propsObj = propsObj || {}; 
+		Object.assign(this, propsObj);
+	};
 
-	constructor() { }
+	public assignee: User;
+	public priority: Priority;
+	public status: State;
+	public title: string;
+	public description: string;
+	public owner: User;
+	public assignees: Array<User>;
+	public startDate: Date;
+	public endDate: Date;
+	
 	// constructor(argument) {
 	// 	// code...
 	// }

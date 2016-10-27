@@ -1,4 +1,3 @@
-"use strict";
 var State;
 (function (State) {
     State[State["NotStarted"] = 0] = "NotStarted";
@@ -36,8 +35,10 @@ class User {
         this._lastName = newName;
     }
 }
-class Task {
-    constructor() {
+export class Task {
+    constructor(propsObj) {
+        propsObj = propsObj || {};
+        Object.assign(this, propsObj);
     }
+    ;
 }
-exports.Task = Task;
