@@ -1,4 +1,4 @@
-var State;
+export var State;
 (function (State) {
     State[State["NotStarted"] = 0] = "NotStarted";
     State[State["Running"] = 1] = "Running";
@@ -6,7 +6,7 @@ var State;
     State[State["Deleted"] = 3] = "Deleted";
     State[State["Completed"] = 4] = "Completed";
 })(State || (State = {}));
-var Priority;
+export var Priority;
 (function (Priority) {
     Priority[Priority["Low"] = 0] = "Low";
     Priority[Priority["Medium"] = 1] = "Medium";
@@ -14,7 +14,7 @@ var Priority;
     Priority[Priority["veryHigh"] = 3] = "veryHigh";
     Priority[Priority["EndOfTheWorld"] = 4] = "EndOfTheWorld";
 })(Priority || (Priority = {}));
-class User {
+export class User {
     constructor(firstName, lastName) {
         this._firstName = firstName;
         this._lastName = lastName;

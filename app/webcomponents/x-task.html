@@ -14,31 +14,53 @@
         display: inline-block;
         width: 100%;
         position: relative;
+        you
+        box-sizing: border-box;
+      }
+
+      :host > paper-item-body {
+        flex: 0 0 auto;
       }
       .actions{
-      	position: absolute;
-      	margin: 8px;
-      	left: 0px;
+      	position: relative;
+      	
+      	right: 0px;
+        width: 5rem
+      }
+      
+
+      .title { 
+        flex:auto;
+      }
+
+      paper-header-panel {
+        --paper-header-panel-standard-container: {
+          border: 1px solid gray;
+        };
       }
 
     </style>
-    <paper-card heading="Task Title" image="" elevation="1" animated-shadow="false">
-      <div class="card-content">
-      	
-      	<div class="actions">
-	    	<iron-icon icon="icons:delete"></iron-icon>
-	    	<iron-icon icon="icons:done"></iron-icon>
-	    </div>
-	    <div style="display: inline-block; height: 64px; width: 64px; border-radius: 50%; background: #ddd; line-height: 64px; font-size: 30px; color: #555; text-align: center;">F</div>
-	    <div class="task-description"> <p style="font-size: 16px;">No nam ipsum lorem aliquip, accumsan quaerendum ei usu.</p>
-	    </div>
+    <paper-header-panel class="flex">
+      <paper-toolbar>
+        <div class="title">Title</div>
+         <div class="actions style-scope paper-card">
+            <iron-icon icon="icons:delete"></iron-icon>
+            <iron-icon icon="icons:done"></iron-icon>
+          </div>
+      </paper-toolbar>
+      <div></div>
+    </paper-header-panel>>
+      
+
+      <div class="card-content">	
+        <div style="display: inline-block; height: 64px; width: 64px; border-radius: 50%; background: #ddd; line-height: 64px; font-size: 30px; color: #555; text-align: center;">F</div>
+        <div class="task-description"> 
+          <p style="font-size: 16px;">No nam ipsum lorem aliquip, accumsan quaerendum ei usu.</p>
+        </div>
       </div>
       <!-- <div class="card-actions">
         
       </div> -->
-    </paper-card>
-    
-    
   </template>
 
   <script>
