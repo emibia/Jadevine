@@ -40,30 +40,38 @@
       }
 
     </style>
-    <paper-header-panel class="flex">
+
+    <!-- Use of semantic's segments to group  -->
+    <!-- <paper-header-panel class="flex">
       <paper-toolbar>
-        <div class="title">Title</div>
+        <div class="title">{{title}}</div>
          <div class="actions style-scope paper-card">
             <iron-icon icon="icons:delete"></iron-icon>
             <iron-icon icon="icons:done"></iron-icon>
           </div>
       </paper-toolbar>
       <div></div>
-    </paper-header-panel>>
+    </paper-header-panel>
       
 
       <div class="card-content">	
         <div style="display: inline-block; height: 64px; width: 64px; border-radius: 50%; background: #ddd; line-height: 64px; font-size: 30px; color: #555; text-align: center;">F</div>
         <div class="task-description"> 
-          <p style="font-size: 16px;">No nam ipsum lorem aliquip, accumsan quaerendum ei usu.</p>
+          <p style="font-size: 16px;">{{priority}}</p>
         </div>
-      </div>
+      </div> -->
       <!-- <div class="card-actions">
         
       </div> -->
+      
+      <div class="segments">
+        <div class="ui segment red"> <h4>{{title}}</h4></div>
+        <div class="ui segment"></div>
+      </div>
   </template>
 
   <script>
+
 
   class XTask {
   	   // Define behaviors with a getter.
@@ -77,10 +85,12 @@
 
       // Define the properties object in beforeRegister.
       this.properties = {
+        title : 'Title',
+        priority : State.Running,
         symbols: {
           type: Array,
           value: function() { return []; },
-          observer: '_updateQuotes'
+          observer: '_updateProps'
         }
       };
     }
@@ -94,7 +104,7 @@
 
     attributeChanged() {  }
 
-    _updateQuotes() {
+    _updateProps() {
       // Same as the vanilla component.
     }
   }

@@ -27,6 +27,7 @@
     "postinstall": "install-app-deps",
     "build": "gulp build",
     "buildts": "gulp ts",
+    "semantic": "gulp semantic",
     "prerelease": "gulp build --env=production",
     "release": "build --x64 --publish never",
     "start": "gulp start",
@@ -56,7 +57,9 @@
     "rollup-plugin-istanbul": "^1.1.0",
     "source-map-support": "^0.4.2",
     "spectron": "^3.3.0",
-    "typescript": "^2.0.3",
     "yargs": "^4.2.0"
+  },
+  "dependencies": {
+    "semantic-ui": "^2.2.6"
   }
 }

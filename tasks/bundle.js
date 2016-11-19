@@ -39,15 +39,18 @@ module.exports = function (src, dest, opts) {
         var jsFile = path.basename(dest);
         var result = bundle.generate({
             format: 'cjs',
-            sourceMap: true,
+            sourceMap: false,
             sourceMapFile: jsFile,
         });
         // Wrap code in self invoking function so the variables don't
         // pollute the global namespace.
         var isolatedCode = utils.getEnvName() !='development'?'(function () {' + result.code + '\n}());':result.code;
+        // return Promise.all([
+        //     jetpack.writeAsync(dest, isolatedCode + '\n//# sourceMappingURL=' + jsFile + '.map'),
+        //     jetpack.writeAsync(dest + '.map', result.map.toString()),
+        // ]);
         return Promise.all([
-            jetpack.writeAsync(dest, isolatedCode + '\n//# sourceMappingURL=' + jsFile + '.map'),
-            jetpack.writeAsync(dest + '.map', result.map.toString()),
+            jetpack.writeAsync(dest, isolatedCode)
         ]);
     });
 };

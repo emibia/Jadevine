@@ -1,5 +1,3 @@
-//import {Task, State} from "./task";
-//import {Task, State} from "./task";
 export var State;
 (function (State) {
     State[State["NotStarted"] = 0] = "NotStarted";
@@ -44,25 +42,3 @@ export class Task {
     }
     ;
 }
-export class Main {
-    init() {
-        this._tasklist = new Array();
-        let t1 = new Task();
-        t1.title = "Task 1";
-        let t2 = new Task();
-        t2.title = "Task 2";
-        let t3 = new Task();
-        t3.title = "Task 3";
-        this._tasklist.push(t1);
-        this._tasklist.push(t2);
-        this._tasklist.push(t3);
-        document.addEventListener('WebComponentsReady', function () {
-            console.log("WebComponentsReady");
-        });
-        return this._tasklist;
-    }
-    get tasklist() {
-        return this._tasklist;
-    }
-}
-//console.log(_tasklist);

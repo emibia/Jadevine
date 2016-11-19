@@ -12,6 +12,7 @@ var utils = require('./utils');
 var projectDir = jetpack;
 var srcDir = jetpack.cwd('./src');
 var destDir = jetpack.cwd('./app');
+var scriptsDir = destDir.cwd('scripts');
 
 var ts = require("gulp-typescript");
 var tsProject = ts.createProject("tsconfig.json");
@@ -37,8 +38,11 @@ gulp.task('bundle', function () {
     return Promise.all([
         bundle(srcDir.path('background.js'), destDir.path('background.js')),
         bundle(srcDir.path('app.js'), destDir.path('app.js')),
-        bundle(srcDir.path('main.js'), destDir.path('main.js')),
-        bundle(srcDir.path('task.js'), destDir.path('task.js'))
+        bundle(jetpack.path('semantic/dist/semantic.min.js'), scriptsDir.path('semantic.min.js')),
+        gulp.src(srcDir.path('main.js')).pipe(gulp.dest(destDir.path('scripts'))),
+        gulp.src(srcDir.path('task.js')).pipe(gulp.dest(destDir.path('scripts'))),
+        //bundle( scriptsDir.path('main.js')),
+        // bundle(srcDir.path('task.js'), scriptsDir.path('task.js'))
     ]);
 });
 
@@ -46,6 +50,11 @@ gulp.task('less', function () {
     return gulp.src(srcDir.path('stylesheets/main.less'))
         .pipe(plumber())
         .pipe(less())
+        .pipe(gulp.dest(destDir.path('stylesheets')));
+});
+
+gulp.task('semantic', function () {
+    return gulp.src('./semantic/dist/semantic.min.css')
         .pipe(gulp.dest(destDir.path('stylesheets')));
 });
 
@@ -74,6 +83,9 @@ gulp.task('watch', function () {
     watch('src/**/*.less', batch(function (events, done) {
         gulp.start('less', beepOnError(done));
     }));
+    watch('semantic/dist/*.css', batch(function (events, done) {
+        gulp.start('semantic', beepOnError(done));
+    }));
 });
 
-gulp.task('build', ['bundle', 'less', 'environment']);
+gulp.task('build', ['bundle', 'less', 'semantic', 'environment']);
