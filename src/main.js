@@ -1,6 +1,5 @@
 //import {Task, State} from "./task";
-//import {Task, State} from "./task";
-export var State;
+var State;
 (function (State) {
     State[State["NotStarted"] = 0] = "NotStarted";
     State[State["Running"] = 1] = "Running";
@@ -8,7 +7,7 @@ export var State;
     State[State["Deleted"] = 3] = "Deleted";
     State[State["Completed"] = 4] = "Completed";
 })(State || (State = {}));
-export var Priority;
+var Priority;
 (function (Priority) {
     Priority[Priority["Low"] = 0] = "Low";
     Priority[Priority["Medium"] = 1] = "Medium";
@@ -39,10 +38,20 @@ export class User {
 }
 export class Task {
     constructor(propsObj) {
+        this._priority = Priority.Low;
+        this._status = State.Running;
         propsObj = propsObj || {};
         Object.assign(this, propsObj);
     }
     ;
+    get user() {
+        return this._assignee;
+    }
+    get status() {
+        return this.status;
+    }
+    get title() { return this._title; }
+    set title(titleStr) { this._title = titleStr; }
 }
 export class Main {
     init() {
@@ -66,3 +75,4 @@ export class Main {
     }
 }
 //console.log(_tasklist);
+export { State, Priority };

@@ -14,7 +14,6 @@
         display: inline-block;
         width: 100%;
         position: relative;
-        you
         box-sizing: border-box;
       }
 
@@ -65,7 +64,7 @@
       </div> -->
       
       <div class="segments">
-        <div class="ui segment red"> <h4>{{title}}</h4></div>
+        <div class="ui segment {{priorityClass}}"> <h4>{{title}}</h4></div>
         <div class="ui segment"></div>
       </div>
   </template>
@@ -85,8 +84,9 @@
 
       // Define the properties object in beforeRegister.
       this.properties = {
-        title : 'Title',
-        priority : State.Running,
+        title : String,
+        priority : Priority,
+        priorityClass: String,
         symbols: {
           type: Array,
           value: function() { return []; },
@@ -98,7 +98,11 @@
     // Define other lifecycle methods as you need.
     ready() { }
     
-    attached() { }
+    attached() {
+      this.priority = Priority.High;
+      this.priorityClass = Priority[this.priority];
+      this.title = 'Title';
+     }
     
     detached() { }
 
