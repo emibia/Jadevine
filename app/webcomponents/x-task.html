@@ -15,6 +15,7 @@
         width: 100%;
         position: relative;
         box-sizing: border-box;
+        margin: 1rem 0;
       }
 
       :host > paper-item-body {
@@ -63,9 +64,9 @@
         
       </div> -->
       
-      <div class="segments">
-        <div class="ui segment {{priorityClass}}"> <h4>{{title}}</h4></div>
-        <div class="ui segment"></div>
+      <div class$="ui raised segments {{priorityClass}}">
+        <div class="ui segment"> <h4>{{title}}</h4></div>
+        <div class="ui segment"><p>lorem ipsum ......</p></div>
       </div>
   </template>
 
@@ -73,6 +74,10 @@
 
 
   class XTask {
+    
+    get taskTitle() {return this.title}
+    set taskTitle(title){this.title =title}
+
   	   // Define behaviors with a getter.
     get behaviors() {
       return [];
@@ -81,7 +86,7 @@
     // Element setup goes in beforeRegister instead of createdCallback.
     beforeRegister() {
       this.is = 'x-task';
-
+      
       // Define the properties object in beforeRegister.
       this.properties = {
         title : String,
@@ -96,12 +101,13 @@
     }
 
     // Define other lifecycle methods as you need.
-    ready() { }
+    ready() {
+       this.priority = Priority.High;
+      this.priorityClass = Priority[this.priority];
+     }
     
     attached() {
-      this.priority = Priority.High;
-      this.priorityClass = Priority[this.priority];
-      this.title = 'Title';
+     
      }
     
     detached() { }

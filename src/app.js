@@ -24,12 +24,15 @@ document.addEventListener('DOMContentLoaded', function () {
     //document.getElementById('greet').innerHTML = greet();
     //document.getElementById('platform-info').innerHTML = os.platform();
     //document.getElementById('env-name').innerHTML = env.name;
+    var container = document.getElementById('container');
     main = new Main();
     main.init();
     console.log( State.Completed);
 
     for (var i = main.tasklist.length - 1; i >= 0; i--) {
-        main.tasklist[i];
+        var _t = document.createElement('x-task');
+        _t.taskTitle = main.tasklist[i].title;
+        container.appendChild(_t);
     }
 
     // TODO: integrate the titlebar (frameless window)

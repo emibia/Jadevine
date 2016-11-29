@@ -39,11 +39,12 @@ gulp.task('bundle', function () {
         bundle(srcDir.path('background.js'), destDir.path('background.js')),
         bundle(srcDir.path('app.js'), destDir.path('app.js')),
         bundle(jetpack.path('semantic/dist/semantic.min.js'), scriptsDir.path('semantic.min.js')),
+        bundle(srcDir.path('task.js'), scriptsDir.path('task.js')),
         bundle(srcDir.path('main.js'), scriptsDir.path('main.js'))
         //gulp.src(srcDir.path('main.js')).pipe(gulp.dest(destDir.path('scripts'))),
         //gulp.src(srcDir.path('task.js')).pipe(gulp.dest(destDir.path('scripts'))),
         // bundle(scriptsDir.path('main.js')),
-        //bundle(srcDir.path('task.js'), scriptsDir.path('task.js'))
+        
     ]);
 });
 

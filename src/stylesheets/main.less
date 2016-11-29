@@ -1,7 +1,15 @@
 // Palette: http://colorschemedesigner.com/csd-3.5/#2Z41Vw0w0w0w0
 @base: #00B64F;
-@import (reference) "semantic/src/semantic.less";
+//@import (reference) "semantic/src/semantic.less";
 @shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+
+@lowColor: #767676;
+@mediumColor:#21BA45;
+@highColor: #FBBD08;
+@veryhighColor: #F2711C;
+@endofworldColor: #DB2828;
+
+
 
 html, body {
     width: 100%;
@@ -36,10 +44,19 @@ paper-card {
 }
 
 //Priority
-.Low:extend(.ui.grey.segment){}
-.Medium{ &:extend(.ui.green.segment);}
-.High{ &:extend(.ui.yellow.segment);}
-.veryHigh{ &:extend(.ui.orange.segment);}
-.EndOfTheWorld{ &:extend(.ui.red.segment);}
+
+div.Low > div.ui.segment:not(.inverted),
+div.Medium > div.ui.segment:not(.inverted),
+div.High > div.ui.segment:not(.inverted),
+div.veryHigh > div.ui.segment:not(.inverted)
+div.EndOfTheWorld > div.ui.segment:not(.inverted) {
+    border-left: 4px solid;
+}
+div.Low > div.ui.segment:not(.inverted){border-left-color: @lowColor;}
+div.Medium > div.ui.segment:not(.inverted){border-left-color: @mediumColor;}
+div.High > div.ui.segment:not(.inverted){border-left-color: @highColor;}
+div.veryHigh > div.ui.segment:not(.inverted){border-left-color: @veryhighColor;}
+div.EndOfTheWorld > div.ui.segment:not(.inverted){border-left-color: @lowColor;}
+
 
 .my-stacked {box-shadow: @shadow}

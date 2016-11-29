@@ -37,8 +37,18 @@ export class User {
 }
 export class Task {
     constructor(propsObj) {
+        this._priority = Priority.Low;
+        this._status = State.Running;
         propsObj = propsObj || {};
         Object.assign(this, propsObj);
     }
     ;
+    get user() {
+        return this._assignee;
+    }
+    get status() {
+        return this.status;
+    }
+    get title() { return this._title; }
+    set title(titleStr) { this._title = titleStr; }
 }

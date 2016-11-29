@@ -1,9 +1,9 @@
-//import {Task, State} from "./task";
+import {Task, State, Priority} from "./task";
 
 
-enum State {	NotStarted=0,Running,Suspended,Deleted,Completed}
+// enum State {	NotStarted=0,Running,Suspended,Deleted,Completed}
 
-enum Priority{Low = 0,Medium,High,veryHigh,EndOfTheWorld}
+//enum Priority{Low = 0,Medium,High,veryHigh,EndOfTheWorld}
 
 export class User  {
 	
@@ -36,39 +36,39 @@ private _lastName: 	string;
 	}
 }
 
-export class Task {
+// export class Task {
 	
-	constructor(propsObj?:Object) {
-		this._priority = Priority.Low;
-		this._status = State.Running;
-		propsObj = propsObj || {}; 
-		Object.assign(this, propsObj);
-	};
+// 	constructor(propsObj?:Object) {
+// 		this._priority = Priority.Low;
+// 		this._status = State.Running;
+// 		propsObj = propsObj || {}; 
+// 		Object.assign(this, propsObj);
+// 	};
 
-	private _assignee: User;
-	private _priority: Priority;
-	private _status: State;
-	private _title: string;
-	private _description: string;
-	private _owner: User;
-	private _assignees: Array<User>;
-	private _startDate: Date;
-	private _endDate: Date;
+// 	private _assignee: User;
+// 	private _priority: Priority;
+// 	private _status: State;
+// 	private _title: string;
+// 	private _description: string;
+// 	private _owner: User;
+// 	private _assignees: Array<User>;
+// 	private _startDate: Date;
+// 	private _endDate: Date;
 	
-	get user() : User {
-		return this._assignee;
-	}
-	get status() : State {
-		return this.status;
-	}
+// 	get user() : User {
+// 		return this._assignee;
+// 	}
+// 	get status() : State {
+// 		return this.status;
+// 	}
 
-	get title() : string{ return this._title;}
-	set title(titleStr:string){this._title=titleStr}
-	// constructor(argument) {
-	// 	// code...
-	// }
-}
-
+// 	get title() : string{ return this._title;}
+// 	set title(titleStr:string){this._title=titleStr}
+// 	// constructor(argument) {
+// 	// 	// code...
+// 	// }
+// }
+;
 
 export class Main{
 	
@@ -105,6 +105,12 @@ export class Main{
 	public get tasklist() : Task[] {
 		return this._tasklist;
 	}
-}
-//console.log(_tasklist);
+
+	/**
+	 * set tasklsetTst 
+	 */
+	public set tasklist (tasklist: Array<Task>) {
+		this._tasklist = tasklist;
+	}
+};
 export {State, Priority}
