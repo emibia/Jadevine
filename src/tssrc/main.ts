@@ -70,6 +70,10 @@ private _lastName: 	string;
 // }
 ;
 
+export class TaskController {
+	//TODO
+}
+
 export class Main{
 	
 	// constructor() {

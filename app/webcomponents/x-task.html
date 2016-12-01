@@ -28,6 +28,15 @@
         width: 5rem
       }
       
+    ::host > div.main.menu {
+    margin-top: -2px;
+    min-height: 0em;
+
+    }
+
+    div.task.header{
+      font-weight: bold;
+    }
 
       .title { 
         flex:auto;
@@ -65,7 +74,17 @@
       </div> -->
       
       <div class$="ui raised segments {{priorityClass}}">
-        <div class="ui segment"> <h4>{{title}}</h4></div>
+        <div class="ui segment">
+          <div class="task header">
+
+            <div class="ui right floated main mini menu">
+              <a class="icon item" on-click="fireRemoveTask"><i class="remove circle icon"></i> Delete</a>
+              <a class="icon item" on-click="fireRemoveTask"><i class="done icon"></i> Done</a>
+            </div>
+            <div class="title">{{title}}</div>
+
+          </div>
+        </div>
         <div class="ui segment"><p>lorem ipsum ......</p></div>
       </div>
   </template>
@@ -100,6 +119,7 @@
       };
     }
 
+    
     // Define other lifecycle methods as you need.
     ready() {
        this.priority = Priority.High;
@@ -118,6 +138,11 @@
       // Same as the vanilla component.
     }
   }
+  XTask.prototype.fireRemoveTask = function(e, details){
+      this.fire('removeTask', {task: {
+        id: this.id
+      } });
+    };
 
   Polymer(XTask);
   </script>

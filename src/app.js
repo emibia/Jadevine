@@ -32,9 +32,16 @@ document.addEventListener('DOMContentLoaded', function () {
     for (var i = main.tasklist.length - 1; i >= 0; i--) {
         var _t = document.createElement('x-task');
         _t.taskTitle = main.tasklist[i].title;
+        _t.id = 'task_'+i;
         container.appendChild(_t);
     }
 
+document.querySelectorAll('x-task').forEach(function(el){
+    el.addEventListener('removeTask', function (e) {
+        console.log(e.detail.task.id); // true
+        document.getElementById(e.detail.task.id).parentNode.removeChild(this);
+    });
+});
     // TODO: integrate the titlebar (frameless window)
  //    t.appendTo(document.body);
  //    t.on('close', function(e) {
