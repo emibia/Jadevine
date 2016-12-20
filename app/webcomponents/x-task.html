@@ -21,6 +21,9 @@
       :host > paper-item-body {
         flex: 0 0 auto;
       }
+      :host .ui.segments > .segment{
+        padding: 0.66rem;
+      }
       .actions{
       	position: relative;
       	
@@ -33,20 +36,6 @@
     min-height: 0em;
 
     }
-
-    div.task.header{
-      font-weight: bold;
-    }
-
-      .title { 
-        flex:auto;
-      }
-
-      paper-header-panel {
-        --paper-header-panel-standard-container: {
-          border: 1px solid gray;
-        };
-      }
 
     </style>
 
@@ -75,17 +64,36 @@
       
       <div class$="ui raised segments {{priorityClass}}">
         <div class="ui segment">
-          <div class="task header">
+          <div class="task container">
+            <div class="task header">
 
-            <div class="ui right floated main mini menu">
-              <a class="icon item" on-click="fireRemoveTask"><i class="remove circle icon"></i> Delete</a>
-              <a class="icon item" on-click="fireRemoveTask"><i class="done icon"></i> Done</a>
+
+              <div class="compact ui right floated buttons">
+                <div class="ui vertical animated button" tabindex="0" on-click="fireRemoveTask">
+                  <div class="hidden content"><span>Delete</span></div>
+                  <div class="visible content">
+                    <i class="remove icon"></i>
+                  </div>
+                </div>
+
+                <div class="compact ui vertical animated button" tabindex="0" on-click="fireCompleteTask">
+                  <div class="hidden content"><span>Done</span></div>
+                  <div class="visible content">
+                    <i class="checkmark box icon"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="title">{{title}}</div>
+
             </div>
-            <div class="title">{{title}}</div>
-
+            
           </div>
         </div>
-        <div class="ui segment"><p>lorem ipsum ......</p></div>
+        <div class="ui segment">
+          <div class="container">
+            <p>lorem ipsum ......</p>
+            </div>
+          </div>
       </div>
   </template>
 
@@ -143,6 +151,20 @@
         id: this.id
       } });
     };
+
+    XTask.prototype.fireCompleteTask = function(e, details){
+      this.fire('completeTask', {task: {
+        id: this.id
+      }})
+    }
+  
+  XTask.prototype.firePriorityTaskChange = function(e, details){
+      this.fire('priorityTask', {task: {
+        id: this.id,
+        priority: this.priority
+      }})
+    }
+
 
   Polymer(XTask);
   </script>

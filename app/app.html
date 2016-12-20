@@ -18,11 +18,11 @@
     <link rel="import" href="webcomponents/x-task.html">
     <link rel="import" href="webcomponents/custom-styles.html">
     
+    <link rel="stylesheet" type="text/css" href="stylesheets/semantic.min.css">
     <link href="stylesheets/main.css" rel="stylesheet" type="text/css">
     <!-- <script type="text/javascript" src="js/require.js"></script> -->
-    <link rel="stylesheet" type="text/css" href="stylesheets/semantic.min.css">
 
-    <!-- <script src="scripts/semantic.min.js"></script> -->
+     <!--<script src="scripts/semantic.min.js"></script> -->
     <script src="helpers/context_menu.js"></script>
     <script src="helpers/external_links.js"></script>
 
@@ -30,28 +30,55 @@
    
 </head>
 <body>
-<paper-toolbar >
-    <span>Task list</span>
-</paper-toolbar>
-<div class="ui container">
-    <div class="ui right floated main menu"> 
-        <a class="icon item">
-            <i class="add to calendar icon"></i></a>
+
+<div class="">
+    <div class="row">
+
+        <div class="column">
+
+            <!--<paper-toolbar >
+                <span>Task list</span>
+            </paper-toolbar>-->
+            
+            <div class="header-tasklist">
+                <h1 class="ui header">Task List</h1>
+                </div>
+            <div id="toolbar" class="">
+                <div class="ui">
+                    <button class="compact ui icon labeled add button">
+                            <i class="add circle icon"></i> Add 
+                    </button>
+                    </div>
+                </div>
+            </div>
+                <div id="container" class="container">
+                    
+                    
+                    <!-- <task-list>
+                        <div style="box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); padding: 16px; margin: 24px; border-radius: 5px; background-color: #fff; color: #757575;">
+                        <div style="display: inline-block; height: 64px; width: 64px; border-radius: 50%; background: #ddd; line-height: 64px; font-size: 30px; color: #555; text-align: center;">F</div>
+                        <div style="font-size: 22px; margin: 16px 0; color: #212121;"> Convenire definiebas scriptorem eu cum. Sit dolor dicunt consectetuer no.</div>
+                        <p style="font-size: 16px;">No nam ipsum lorem aliquip, accumsan quaerendum ei usu.</p>
+                        <p style="font-size: 14px;">Pro saepe pertinax ei, ad pri animal labores suscipiantur.Convenire definiebas scriptorem eu cum. Sit dolor dicunt consectetuer no.Usu eu novum principes, vel quodsi aliquip ea.</p>
+                        </div>
+                    </task-list> -->
+
+            </div>
+        </div>
+
+        <div class="column" hidden>
+            <p>MAILBOX column</p>
+        </div>
     </div>
 </div>
-    <div id="container" class="container">
-        
-        
-        <!-- <task-list>
-            <div style="box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2); padding: 16px; margin: 24px; border-radius: 5px; background-color: #fff; color: #757575;">
-            <div style="display: inline-block; height: 64px; width: 64px; border-radius: 50%; background: #ddd; line-height: 64px; font-size: 30px; color: #555; text-align: center;">F</div>
-            <div style="font-size: 22px; margin: 16px 0; color: #212121;"> Convenire definiebas scriptorem eu cum. Sit dolor dicunt consectetuer no.</div>
-            <p style="font-size: 16px;">No nam ipsum lorem aliquip, accumsan quaerendum ei usu.</p>
-            <p style="font-size: 14px;">Pro saepe pertinax ei, ad pri animal labores suscipiantur.Convenire definiebas scriptorem eu cum. Sit dolor dicunt consectetuer no.Usu eu novum principes, vel quodsi aliquip ea.</p>
-            </div>
-        </task-list> -->
 
+<div class="ui modal">
+    <div class="header">Header</div>
+    <div class="content">
+        <p></p>
+        <p></p>
+        <p></p>
     </div>
-
+    </div>
 </body>
 </html>

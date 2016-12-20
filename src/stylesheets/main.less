@@ -23,16 +23,17 @@ body {
     justify-content: center;
     align-items: center;
     font-family: sans-serif;
+    padding: 3.5em 1em 1em;
 }
 
 a {
     text-decoration: none;
 }
 
-.container {
-    // text-align: center;
-    margin: 24px
-}
+// .container {
+//     // text-align: center;
+//     margin: 24px
+// }
 
 .subtitle {
     color: gray;
@@ -58,5 +59,43 @@ div.High > div.ui.segment:not(.inverted){border-left-color: @highColor;}
 div.veryHigh > div.ui.segment:not(.inverted){border-left-color: @veryhighColor;}
 div.EndOfTheWorld > div.ui.segment:not(.inverted){border-left-color: @lowColor;}
 
-
 .my-stacked {box-shadow: @shadow}
+
+#toolbar:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.task.container:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.header-tasklist{
+    margin: 1.25rem -1.0rem 0;
+    padding: 1rem 1.0rem
+    }
+
+div.task.header{
+      font-weight: bold;
+    }
+
+div.task.header:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+ div.task.header > .title { 
+        flex:auto;
+        display: flex;
+        font-size: 1.2rem;
+        padding-top: 0.5em; 
+      }

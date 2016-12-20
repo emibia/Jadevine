@@ -36,6 +36,8 @@ class Task {
     set title(titleStr) { this._title = titleStr; }
 }
 
+// enum State {	NotStarted=0,Running,Suspended,Deleted,Completed}
+//enum Priority{Low = 0,Medium,High,veryHigh,EndOfTheWorld}
 class User$$1 {
     constructor(firstName, lastName) {
         this._firstName = firstName;
